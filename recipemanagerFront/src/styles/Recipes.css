@@ -1,0 +1,93 @@
+.recipe-card {
+    background-color: #3f2828;
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    margin: 10px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    /* FIX: Make recipe card take full width */
+    width: 90% !important;
+    max-width: 900px; /* Limit max width */
+}
+
+.recipes-list {
+    display: flex;
+    flex-direction: column; /* Stack recipes vertically */
+    align-items: center; /* Center recipes in the container */
+    width: 100%; /* Ensure full width */
+}
+
+.recipe-card:hover {
+    transform: scale(1.03);
+}
+
+.recipes-list .recipe-card h3 {
+    font-size: 22px; /* Adjust title size */
+    font-weight: bold;
+}
+
+.recipes-list .recipe-card p {
+    font-size: 16px; /* Adjust description size */
+    color: #ddd; /* Slightly lighter text */
+}
+
+.clickable-user {
+    color: #ff6b6b;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out;
+}
+
+.clickable-user:hover {
+    color: #e63946;
+}
+
+.favorite-btn {
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: color 0.3s ease;
+}
+
+.favorite-btn.favorited {
+    color: red;
+}
+
+/* Style for Category Dropdown */
+.category-dropdown {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #3a3a3a;
+    color: white;
+    font-size: 16px;
+    height: 50px;
+    cursor: pointer;
+}
+
+/* ✅ Shift it to the left */
+.category-container {
+    display: flex;
+    justify-content: flex-start; /* Moves it to the left */
+    width: 20%;
+    margin-bottom: 10px; /* Space from recipes */
+}
+
+
+/* On hover and focus */
+.category-dropdown:hover,
+.category-dropdown:focus {
+    border-color: #ffffff;
+    outline: none;
+}
+
+
+

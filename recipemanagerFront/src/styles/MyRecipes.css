@@ -1,0 +1,262 @@
+
+
+/* Recipe List Styling */
+.recipe-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 95%; /* Moves slightly to the left */
+}
+
+.recipe-card {
+    background-color: #3f2828;
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    margin: 10px;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    /* ✅ FIX: Make recipe card take full width */
+    width: 100%; 
+    max-width: 900px; /* Limit max width */
+}
+
+
+.recipe-card:hover {
+    background: #5f3333;
+    transform: scale(1.02);
+}
+
+/* Clickable area inside Recipe Card */
+.recipe-info {
+    flex: 1;
+}
+
+/* Edit/Delete button container */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Edit & Delete buttons */
+.edit-btn,
+.delete-btn {
+    background: #ff4444;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+}
+
+.edit-btn:hover {
+    background: #cc0000;
+}
+
+.delete-btn:hover {
+    background: #990000;
+}
+
+/* Add Recipe Form Styling */
+.add-recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%; /* Narrower to the left */
+    align-items: flex;
+    text-align: center;
+    margin: 0 auto; /* Ensure it's centered */
+    padding: 20px;
+    background: #494949;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Input & Textarea Styling */
+.add-recipe-form input,
+.add-recipe-form textarea,
+.add-recipe-form select {
+    width: 95%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #3a3a3a;
+    color: white;
+    font-size: 16px;
+}
+
+/* Make Ingredients and Instructions Bigger */
+.add-recipe-form textarea[name="ingredients"] {
+    height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Bullet Points for Ingredients */
+.ingredients-list {
+    padding-left: 20px;
+}
+
+.ingredients-list li {
+    list-style-type: disc;
+    margin-left: 15px;
+    font-family: monospace;
+    background: none;
+    color: white;
+}
+
+/* Bigger Instructions Box */
+.add-recipe-form textarea[name="instructions"] {
+    height: 150px;
+    resize: vertical;
+    background: #3a3a3a;
+    color: white;
+}
+
+/* Fat Dropdown */
+.add-recipe-form select {
+    height: 50px;
+    font-size: 16px;
+}
+
+/* Add Recipe Button */
+.add-btn {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+/* Edit Recipe Form Styling */
+.edit-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%; /* Match Add Form */
+    align-items: center; /* Center content */
+    text-align: center;
+    padding: 20px;
+    background: #494949;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the title inside the edit section */
+.edit-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Edit Fields Styling (Same as Add Fields) */
+.edit-section input,
+.edit-section textarea,
+.edit-section select {
+    width: 93%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #3a3a3a;
+    color: white;
+    font-size: 16px;
+}
+
+/* Matching Height for Ingredients and Instructions */
+.edit-section textarea[name="ingredients"] {
+    height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Matching Bullet Points for Ingredients */
+.edit-section textarea[name="ingredients"] {
+    padding-left: 20px;
+    list-style-type: disc;
+    font-family: monospace;
+    background: #3a3a3a;
+    color: white;
+}
+
+/* Matching Bigger Instructions Box */
+.edit-section textarea[name="instructions"] {
+    height: 150px;
+    resize: vertical;
+    background: #3a3a3a;
+    color: white;
+}
+
+/* Matching Fat Dropdown */
+.edit-section select {
+    height: 50px;
+    font-size: 16px;
+}
+
+/* Edit Recipe Buttons */
+.save-btn, .cancel-btn {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+}
+
+.cancel-btn {
+    background-color: #ff4444;
+}
+
+.cancel-btn:hover {
+    background-color: #cc0000;
+}
+
+.category-container {
+    display: flex;
+    justify-content: flex-start; /* Moves it to the left */
+    width: 30%;
+    margin-bottom: 10px; /* Space from recipes */
+}
+
+/* Style for Category Dropdown */
+.category-dropdown {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #3a3a3a;
+    color: white;
+    font-size: 16px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+/* On hover and focus */
+.category-dropdown:hover,
+.category-dropdown:focus {
+    border-color: #ffffff;
+    outline: none;
+}
+
