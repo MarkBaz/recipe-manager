@@ -4,7 +4,7 @@ This is a full-stack application for managing recipes. It includes a Spring Boot
 
 ## 📌 Installation Steps
 
-### 1️⃣  Install Dependencies
+###   Install Dependencies
 
 #### **Backend (Spring Boot)**
 - Ensure you have **Java 17+** and **Maven** installed.
