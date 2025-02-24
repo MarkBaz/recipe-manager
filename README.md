@@ -4,11 +4,7 @@ This is a full-stack application for managing recipes. It includes a Spring Boot
 
 ## 📌 Installation Steps
 
-<<<<<<< HEAD
-###   Install Dependencies
-=======
 ### Install Dependencies
->>>>>>> ef2f395 (Implemented delete user, updated read me file)
 
 #### **Backend (Spring Boot)**
 - Ensure you have **Java 17+** and **Maven** installed.
