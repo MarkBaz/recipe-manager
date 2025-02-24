@@ -18,8 +18,6 @@ public class Favorite {
     @Column(name = "favorite_id")
     private Long favoriteId;
 
-    //private LocalDateTime favoritedAt = LocalDateTime.now();
-
     // Many favorites belong to one user
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)

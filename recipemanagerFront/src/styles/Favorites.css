@@ -5,7 +5,6 @@
     width: 100%;
 }
 
-/* Recipe Card Styling (Matches Recipes Page) */
 .recipe-card {
     background-color: #3f2828;
     color: white;
@@ -27,12 +26,10 @@
     background: #5f3333;
 }
 
-/* Recipe Details */
 .recipe-details {
     flex: 1;
 }
 
-/* Remove Favorite Button */
 .remove-favorite-btn {
     background: #ff4444;
     border: none;

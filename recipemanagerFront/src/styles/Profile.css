@@ -12,7 +12,6 @@
     margin-bottom: 20px;
 }
 
-/* Bubble Buttons */
 .profile-bubbles {
     display: flex;
     flex-wrap: wrap;
@@ -46,3 +45,21 @@
     font-size: 14px;
     color: #ccc;
 }
+
+/* Delete Account Button */
+.delete-account-btn {
+    margin-top: 30px;
+    padding: 8px 10px;
+    background-color: #424242;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.delete-account-btn:hover {
+    background-color: #4a4a4a;
+}
+

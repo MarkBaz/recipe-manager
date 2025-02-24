@@ -1,4 +1,4 @@
-package com.recipeapp.recipemanager.security;
+package com.recipeapp.recipemanager.service.impl;
 
 import com.recipeapp.recipemanager.model.User;
 import com.recipeapp.recipemanager.repository.UserRepository;

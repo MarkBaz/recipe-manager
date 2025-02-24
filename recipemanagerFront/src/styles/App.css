@@ -18,10 +18,10 @@ html, body {
 }
 
 .main-content {
-    width: 60%; /* Constrain width */
-    max-width: 1000px; /* Avoid it being too wide */
+    width: 60%; 
+    max-width: 1000px; 
     margin: 20px auto;
-    background: rgba(84, 79, 79, 0.9); /* Keeps the background readable */
+    background: rgba(84, 79, 79, 0.9);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);

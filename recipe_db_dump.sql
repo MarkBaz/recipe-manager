@@ -77,22 +77,22 @@ INSERT INTO categories (category_id, name) VALUES
 
 -- Insert users
 INSERT INTO users (firstname, lastname, email, password) VALUES
-    ('Einstein', 'Scientist', 'einstein@science.com', '$2b$12$0ghQYE.JnutMHwx0OQCtsuc0Sx350nf9u71OnnkTCsHXjUVUIjCzC'),
-    ('Newton', 'Scientist', 'newton@science.com', '$2b$12$WxZo7sgbu4feRZ3Ga0.yge5o4xVtQxz/2SrtYBbSpdi7Fmj0CVC8O'),
-    ('Curie', 'Scientist', 'curie@science.com', '$2b$12$VevF6mCuKahaEMtb7ncxyOtWjrJBIfymMh1eU/VzXMh6NRN/d52B.'),
-    ('Darwin', 'Scientist', 'darwin@science.com', '$2b$12$x0Q1Tlga.2C/4w9Ij81L6eBHcjS5qjhudsDqhCgR.MWBfSlfIJ5ZO'),
-    ('Tesla', 'Scientist', 'tesla@science.com', '$2b$12$yd6O.7ERfWFWYPLmf1z4nOIhVoUi/RI8P7ZIFVfTrhzJwBIqChhsW'),
-    ('Galileo', 'Scientist', 'galileo@science.com', '$2b$12$s2dwT88Q3RLHJPMZQpQao.DinyJz03MX15xvFOpRAYViGwYlKerBu'),
-    ('Hawking', 'Scientist', 'hawking@science.com', '$2b$12$5FKpOP8HfpOnYDLEx2vAqedtE.cKAcUgNUHIm/2OSZBnqioIrvxGi'),
-    ('Pasteur', 'Scientist', 'pasteur@science.com', '$2b$12$vXjP4bz4rXkZrNpFVT4x6.mX31nX8eR/mUwUQXB6jH9HiFm5V4QMm'),
-    ('Bohr', 'Scientist', 'bohr@science.com', '$2b$12$aTNmb6ztb3pCL9yPBh8ntuX0D0AymIlRg23IsNVJjImOpp.7G2rH2'),
-    ('Lovelace', 'Scientist', 'lovelace@science.com', '$2b$12$hiALLBRYLdM5NAhMG0pNwO9z70itiM2BzLGIwdO3YOwZA6Mt7ptYK'),
-    ('Fermi', 'Scientist', 'fermi@science.com', '$2b$12$iwHMVndagesphBHg6F9hZuS9GRSj7EczSaZ7lhCrg7Qz8spIjcjEe'),
-    ('Planck', 'Scientist', 'planck@science.com', '$2b$12$oEiXL/S2BIc4flB7C0X3ouTs82QPsjU1hJ0Mh79BqhejblcYj2T1e'),
-    ('Edison', 'Scientist', 'edison@science.com', '$2b$12$aBfFMNMsNoHTTsibkkFFHuVj2xU1Sgp35ALiDnbMJOZDD8ZEn6WW2'),
-    ('Mendel', 'Scientist', 'mendel@science.com', '$2b$12$N4GUnVmWIXyBy5ib0qQkSuWW6SG3f5jJcO6xfCwb3vLj/qE16ZRJ.'),
-    ('Hubble', 'Scientist', 'hubble@science.com', '$2b$12$BpVfAZc5i6Z5wDlwm4GDZ.zuScpttbfFO5bSIX4pMgecz1wPlOwI.'),
-    ('Turing', 'Scientist', 'turing@science.com', '$2b$12$ME21zSLC/8RjhMyvZf0sfen.vsIIUustK9FdAQiUR1r7tCcx407re'),
+    ('Einstein', 'Albert', 'einstein@science.com', '$2b$12$0ghQYE.JnutMHwx0OQCtsuc0Sx350nf9u71OnnkTCsHXjUVUIjCzC'),
+    ('Newton', 'Isaac', 'newton@science.com', '$2b$12$WxZo7sgbu4feRZ3Ga0.yge5o4xVtQxz/2SrtYBbSpdi7Fmj0CVC8O'),
+    ('Curie', 'Maria', 'curie@science.com', '$2b$12$VevF6mCuKahaEMtb7ncxyOtWjrJBIfymMh1eU/VzXMh6NRN/d52B.'),
+    ('Darwin', 'Charles', 'darwin@science.com', '$2b$12$x0Q1Tlga.2C/4w9Ij81L6eBHcjS5qjhudsDqhCgR.MWBfSlfIJ5ZO'),
+    ('Tesla', 'Nicola', 'tesla@science.com', '$2b$12$yd6O.7ERfWFWYPLmf1z4nOIhVoUi/RI8P7ZIFVfTrhzJwBIqChhsW'),
+    ('Galileo', 'Galilei', 'galileo@science.com', '$2b$12$s2dwT88Q3RLHJPMZQpQao.DinyJz03MX15xvFOpRAYViGwYlKerBu'),
+    ('Hawking', 'Stephen', 'hawking@science.com', '$2b$12$5FKpOP8HfpOnYDLEx2vAqedtE.cKAcUgNUHIm/2OSZBnqioIrvxGi'),
+    ('Pasteur', 'Louis', 'pasteur@science.com', '$2b$12$vXjP4bz4rXkZrNpFVT4x6.mX31nX8eR/mUwUQXB6jH9HiFm5V4QMm'),
+    ('Bohr', 'Niels', 'bohr@science.com', '$2b$12$aTNmb6ztb3pCL9yPBh8ntuX0D0AymIlRg23IsNVJjImOpp.7G2rH2'),
+    ('Lovelace', 'Ada', 'lovelace@science.com', '$2b$12$hiALLBRYLdM5NAhMG0pNwO9z70itiM2BzLGIwdO3YOwZA6Mt7ptYK'),
+    ('Fermi', 'Enrico', 'fermi@science.com', '$2b$12$iwHMVndagesphBHg6F9hZuS9GRSj7EczSaZ7lhCrg7Qz8spIjcjEe'),
+    ('Planck', 'Max', 'planck@science.com', '$2b$12$oEiXL/S2BIc4flB7C0X3ouTs82QPsjU1hJ0Mh79BqhejblcYj2T1e'),
+    ('Edison', 'Thomas', 'edison@science.com', '$2b$12$aBfFMNMsNoHTTsibkkFFHuVj2xU1Sgp35ALiDnbMJOZDD8ZEn6WW2'),
+    ('Mendel', 'Gregor', 'mendel@science.com', '$2b$12$N4GUnVmWIXyBy5ib0qQkSuWW6SG3f5jJcO6xfCwb3vLj/qE16ZRJ.'),
+    ('Hubble', 'Edwin', 'hubble@science.com', '$2b$12$BpVfAZc5i6Z5wDlwm4GDZ.zuScpttbfFO5bSIX4pMgecz1wPlOwI.'),
+    ('Turing', 'Alan', 'turing@science.com', '$2b$12$ME21zSLC/8RjhMyvZf0sfen.vsIIUustK9FdAQiUR1r7tCcx407re'),
     ('Mark', 'Baz', 'mark@mail.com', '$2b$12$qY1C5E7Ebm7dPNiOaxSpQuwn4nYgbqTjSgf8IsSQ7wfYJfph4n5W.');
 
 

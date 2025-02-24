@@ -51,6 +51,26 @@ function Profile() {
     fetchRecipeCount();
   }, [navigate]);
 
+  const handleDeleteAccount = async () => {
+    const confirmDelete = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
+    
+    if (confirmDelete) {
+      try {
+        await api.delete(`/users/${userId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        // Clear storage and redirect
+        localStorage.clear();
+        alert("Your account has been deleted.");
+        navigate("/signup");
+      } catch (error) {
+        console.error("Failed to delete account:", error);
+        alert("Error deleting account. Please try again.");
+      }
+    }
+  };
+
   return (
     <div className="main-content">
       <h1>My Profile</h1>
@@ -72,6 +92,11 @@ function Profile() {
               <p>View your favorite recipes.</p>
             </div>
           </div>
+
+          <button className="delete-account-btn" onClick={handleDeleteAccount}>
+            ❌ Delete My Account
+          </button>
+
         </div>
       ) : (
         <p>Loading user data...</p>

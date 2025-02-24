@@ -1,4 +1,3 @@
-/* 📌 Main Recipe Content */
 .main-recipe-content {
     width: 50%;
     max-width: 1000px;
@@ -11,7 +10,6 @@
     color: white;
 }
 
-/* 🏷️ Recipe Header */
 .recipe-header {
     display: flex;
     align-items: center;
@@ -20,7 +18,6 @@
     margin-bottom: 10px;
 }
 
-/* 🔗 Clickable User */
 .recipe-creator {
     color: white;
     font-size: 18px;
@@ -37,7 +34,6 @@
     color: #e63946;
 }
 
-/* ⭐ Rating and Favorite Section */
 .rating-favorite-container {
     display: flex;
     align-items: center;
@@ -46,14 +42,12 @@
     margin-top: 10px;
 }
 
-/* 📢 "Rate this Recipe" Title */
 .rating-favorite-container p {
     margin: 0;
     font-size: 18px;
     font-weight: bold;
 }
 
-/* ⭐ Star Rating - Below "Rate this Recipe" */
 .rating-container {
     display: flex;
     align-items: center;
@@ -62,7 +56,6 @@
     margin-top: 5px;
 }
 
-/* ⭐ Stars - Smaller */
 .rating-container button {
     border: none;
     padding: 6px 10px;
@@ -81,14 +74,12 @@
     background-color: gold;
 }
 
-/* 📊 Average Rating */
 .average-rating-text {
     font-size: 16px;
     font-weight: bold;
     margin-left: 5px;
 }
 
-/* ❤️ Favorite Button */
 .favorite-btn {
     font-size: 16px;
     background: none;
@@ -102,7 +93,6 @@
     color: red;
 }
 
-/* 💬 Comments Section */
 .comments-section {
     display: flex;
     flex-direction: column;
@@ -111,7 +101,6 @@
     max-width: 60%;
 }
 
-/* 🗨️ Individual Comment Bubble */
 .comment-bubble {
     background: #3a3a3a;
     padding: 10px;
@@ -125,19 +114,16 @@
     position: relative;
 }
 
-/* 👤 Comment Author */
 .comment-bubble strong {
     color: white;
     font-size: 13px;
 }
 
-/* 💬 Comment Text */
 .comment-bubble p {
     color: #ddd;
     font-size: 14px;
 }
 
-/* ❌ Delete Comment Button */
 .delete-comment-btn {
     background: #d9534f;
     color: white;
@@ -155,7 +141,6 @@
     background: #c9302c;
 }
 
-/* ➕ Add Comment Section */
 .add-comment-form {
     display: flex;
     flex-direction: column;
@@ -168,7 +153,6 @@
     max-width: 35%;
 }
 
-/* 📝 Comment Input */
 .comment-input {
     width: 90%;
     padding: 10px;
@@ -179,7 +163,6 @@
     font-size: 14px;
 }
 
-/* ✅ Submit Button */
 .submit-btn {
     background-color: #28a745;
     color: white;

@@ -10,17 +10,15 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-
-    /* FIX: Make recipe card take full width */
     width: 90% !important;
-    max-width: 900px; /* Limit max width */
+    max-width: 900px; 
 }
 
 .recipes-list {
     display: flex;
-    flex-direction: column; /* Stack recipes vertically */
-    align-items: center; /* Center recipes in the container */
-    width: 100%; /* Ensure full width */
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%;
 }
 
 .recipe-card:hover {
@@ -28,13 +26,13 @@
 }
 
 .recipes-list .recipe-card h3 {
-    font-size: 22px; /* Adjust title size */
+    font-size: 22px; 
     font-weight: bold;
 }
 
 .recipes-list .recipe-card p {
-    font-size: 16px; /* Adjust description size */
-    color: #ddd; /* Slightly lighter text */
+    font-size: 16px; 
+    color: #ddd; 
 }
 
 .clickable-user {
@@ -60,7 +58,6 @@
     color: red;
 }
 
-/* Style for Category Dropdown */
 .category-dropdown {
     width: 100%;
     padding: 10px;
@@ -73,16 +70,13 @@
     cursor: pointer;
 }
 
-/* ✅ Shift it to the left */
 .category-container {
     display: flex;
-    justify-content: flex-start; /* Moves it to the left */
+    justify-content: flex-start;
     width: 20%;
     margin-bottom: 10px; /* Space from recipes */
 }
 
-
-/* On hover and focus */
 .category-dropdown:hover,
 .category-dropdown:focus {
     border-color: #ffffff;

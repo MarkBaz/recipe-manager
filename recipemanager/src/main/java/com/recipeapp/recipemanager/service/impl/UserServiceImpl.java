@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.javapoet.ClassName;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -67,8 +65,6 @@ public class UserServiceImpl implements UserService {
         user.setFirstname(userDTO.getFirstname());
         user.setLastname(userDTO.getLastname());
         userDTO.setEmail(user.getEmail());
-        //user.setEmail(userDTO.getEmail());
-        //user.setPassword(userDTO.getPassword());
         if (userDTO.getPassword() != null && !userDTO.getPassword().isEmpty()){
             user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         }
