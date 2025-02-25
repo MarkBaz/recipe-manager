@@ -30,7 +30,7 @@ This is a full-stack application for managing recipes. It includes a Spring Boot
  -> mvn spring-boot:run
 - Start Frontend
  -> cd recipemanagerFront
- -> npm start
+ -> npm run dev
 
 Your application will be accessible at http://localhost:5173
 
