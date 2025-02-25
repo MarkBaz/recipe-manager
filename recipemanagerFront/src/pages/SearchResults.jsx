@@ -75,57 +75,64 @@ function Searched() {
   return (
     <div className="main-content">
       <h1>Search Results for "{searchQuery}"</h1>
-
+  
       {isLoading ? (
         <p>Loading results...</p>
       ) : (
         <>
-          {/* Users Section */}
-          {userResults.length > 0 && (
-            <div>
+          {/* Results Container */}
+          <div className="search-results-container">
+            {/* Users Section */}
+            <div className="users-section">
               <h2>Users</h2>
-              <div className="search-user-list">
-                {userResults.map((user) => (
-                  <div key={user.userId} className="search-user-card" onClick={() => navigate(`/users/${user.userId}`)}>
-                    <h3>{user.firstname} {user.lastname}</h3>
-                    <p>Email: {user.email}</p>
-                    <p>Recipes Created: {user.recipeCount}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Recipes Section */}
-          {recipeResults.length > 0 && (
-            <div>
-              <h2>Recipes</h2>
-              <div className="recipes-list">
-                {recipeResults.map((recipe) => (
-                  <div key={recipe.recipeId} className="recipe-card" onClick={() => navigate(`/recipes/${recipe.recipeId}`)}>
-                    <div className="recipe-details">
-                      <h3>{recipe.title}</h3>
-                      <p>{recipe.description}</p>
-                      <p>
-                        By:{" "}
-                        <span
-                          className="clickable-user"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            navigate(`/users/${recipe.user.userId}`);
-                          }}
-                        >
-                          {recipe.user.firstname} {recipe.user.lastname}
-                        </span>
-                      </p>
-                      <p>⭐ Average Rating: {typeof recipe.averageRating === "number" ? recipe.averageRating.toFixed(1) : "No ratings yet"}</p>
+              {userResults.length > 0 ? (
+                <div className="search-user-list">
+                  {userResults.map((user) => (
+                    <div key={user.userId} className="search-user-card" onClick={() => navigate(`/users/${user.userId}`)}>
+                      <h3>{user.firstname} {user.lastname}</h3>
+                      <p>Email: {user.email}</p>
+                      <p>Recipes Created: {user.recipeCount}</p>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <p>No users found.</p>
+              )}
             </div>
-          )}
-
+  
+            {/* Recipes Section */}
+            <div className="recipes-section">
+              <h2>Recipes</h2>
+              {recipeResults.length > 0 ? (
+                <div className="recipes-list-search">
+                  {recipeResults.map((recipe) => (
+                    <div key={recipe.recipeId} className="recipe-card-search" onClick={() => navigate(`/recipes/${recipe.recipeId}`)}>
+                      <div className="recipe-details">
+                        <h3>{recipe.title}</h3>
+                        <p>{recipe.description}</p>
+                        <p>
+                          By:{" "}
+                          <span
+                            className="clickable-user"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate(`/users/${recipe.user.userId}`);
+                            }}
+                          >
+                            {recipe.user.firstname} {recipe.user.lastname}
+                          </span>
+                        </p>
+                        <p>⭐ Average Rating: {typeof recipe.averageRating === "number" ? recipe.averageRating.toFixed(1) : "No ratings yet"}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p>No recipes found.</p>
+              )}
+            </div>
+          </div>
+  
           {/* No results found */}
           {userResults.length === 0 && recipeResults.length === 0 && (
             <p>No users or recipes found.</p>

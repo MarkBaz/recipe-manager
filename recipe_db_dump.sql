@@ -269,7 +269,7 @@ Wasabi',
 Lay out nori and spread rice evenly.
 Add fish and roll tightly.
 Slice and serve with soy sauce.', 
-     13, 7),
+     13, 8),
 
     ('Pad Thai', 'Thai stir-fried noodle dish.', 
      'Rice Noodles
@@ -281,7 +281,7 @@ Soy Sauce',
      'Cook rice noodles.
 Stir-fry with shrimp, eggs, and peanuts.
 Add soy sauce and lime juice.', 
-     14, 8),
+     14, 9),
 
     ('Paella', 'Spanish saffron rice dish with seafood.', 
      'Rice
@@ -293,7 +293,7 @@ Tomatoes',
      'Sauté chicken and seafood.
 Add rice and saffron broth.
 Simmer until rice is cooked and flavors combine.', 
-     15, 9),
+     15, 10),
 
     ('Kimchi Fried Rice', 'Korean spicy fried rice dish.', 
      'Rice
@@ -304,7 +304,7 @@ Soy Sauce',
      'Cook rice and mix with chopped kimchi.
 Stir-fry with eggs and green onions.
 Add soy sauce and serve hot.', 
-     16, 10);
+     16, 12);
 
 
 
