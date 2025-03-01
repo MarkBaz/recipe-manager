@@ -14,14 +14,13 @@ function Login() {
     try {
       const response = await login(email, password);
 
-      // Store token and user details
       localStorage.setItem("token", response.token);
       localStorage.setItem("userId", response.userId);
       localStorage.setItem("firstname", response.firstname);
       localStorage.setItem("lastname", response.lastname);
       localStorage.setItem("email", response.email);
 
-      navigate("/"); // Redirect to Home after login
+      navigate("/");
     } catch (err) {
       setError(err);
     }

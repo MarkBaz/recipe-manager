@@ -30,10 +30,10 @@
 }
 
 .search-results {
-    position: absolute; /* Stays aligned with input */
-    top: calc(100% + 5px); /* Ensures it appears just below input */
+    position: absolute;
+    top: calc(100% + 5px);
     left: 0;
-    width: 100%; /* Matches input width */
+    width: 100%;
     background: #333;
     color: white;
     border-radius: 5px;
@@ -42,7 +42,7 @@
     max-height: 250px;
     overflow-y: auto;
     padding: 5px 0;
-    display: none; /* Initially hidden */
+    display: none;
 }
 
 .search-results.active {

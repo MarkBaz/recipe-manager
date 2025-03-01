@@ -32,7 +32,6 @@ function OtherUser() {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      // Fetch and attach average ratings
       const recipesWithRatings = await Promise.all(
         response.data.map(async (recipe) => {
           try {

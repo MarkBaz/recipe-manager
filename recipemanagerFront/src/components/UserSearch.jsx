@@ -12,7 +12,6 @@ function UserSearch() {
   const token = localStorage.getItem("token");
 
 
-  // Hide results when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -40,7 +39,6 @@ function UserSearch() {
           }),
         ]);
 
-        // Format results with labels
         const formattedResults = [
             ...userRes.data.map((user) => ({
               id: user.userId,
@@ -69,11 +67,10 @@ function UserSearch() {
     } else {
       navigate(`/recipes/${result.id}`);
     }
-    setSearchQuery(""); // Clear search bar after navigation
-    setSearchResults([]); // Hide dropdown
+    setSearchQuery("");
+    setSearchResults([]);
   };
 
-  // Handle search button click (navigate to Searched.jsx)
   const handleSearch = () => {
     if (!searchQuery.trim()) return;
     navigate(`/search-results?query=${searchQuery}`);
@@ -90,7 +87,6 @@ function UserSearch() {
       />
       <button onClick={handleSearch}>🔍 Search</button>
 
-      {/* Search Results Dropdown */}
       {searchResults.length > 0 && (
         <ul className="search-results active">
           {searchResults.map((result) => (

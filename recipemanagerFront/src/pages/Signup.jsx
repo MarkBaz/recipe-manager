@@ -15,7 +15,7 @@ function Signup() {
     e.preventDefault();
     try {
       await registerUser(firstname, lastname, email, password);
-      navigate("/login"); // Redirect to login after successful signup
+      navigate("/login"); // nav to login
     } catch (err) {
       setError(err);
     }

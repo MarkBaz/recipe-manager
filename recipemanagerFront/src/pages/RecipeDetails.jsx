@@ -112,8 +112,8 @@ function RecipeDetails() {
         }, {
             headers: { Authorization: `Bearer ${token}` },
         });
-        setNewComment(""); // Clear input field
-        fetchComments(); // Refresh comments
+        setNewComment("");
+        fetchComments();
     } catch (error) {
         console.error("Failed to add comment:", error.response ? error.response.data : error.message);
     }
@@ -125,7 +125,7 @@ function RecipeDetails() {
         headers: { Authorization: `Bearer ${token}` },
       });
   
-      // Remove deleted comment from state
+      // remove deleted comment from state
       setComments((prevComments) =>
         prevComments.filter((comment) => comment.commentId !== commentId)
       );
@@ -149,17 +149,14 @@ function RecipeDetails() {
     }
   };
 
-  // Toggle Favorite (Add or Remove)
   const toggleFavorite = async () => {
     try {
       if (isFavorite) {
-        // Remove from favorites (DELETE request with userId and recipeId)
         await api.delete(`/favorites/user/${userId}/recipe/${recipeId}`, {
             headers: { Authorization: `Bearer ${token}` },
         });
         setIsFavorite(false);
     } else {
-        // Add the recipe to favorites
         await api.post("/favorites", { userId, recipeId }, {
             headers: { Authorization: `Bearer ${token}` },
         });
@@ -203,17 +200,14 @@ function RecipeDetails() {
                 ))}
               </ol>
           
-          {/* Rating and Favorite Section */}
           <div className="rating-favorite-container">
               <p>Rate this Recipe</p>
 
-              {/* ❤️ Favorite Button */}
               <button className={`favorite-btn ${isFavorite ? "favorited" : ""}`} onClick={toggleFavorite}>
                   ❤️ {isFavorite ? "Unfavorite" : "Favorite"}
               </button>
           </div>
 
-          {/* Star Ratings - Now Below "Rate this Recipe" */}
           <div className="rating-container">
               {[1, 2, 3, 4, 5].map((star) => (
                   <button
@@ -224,15 +218,12 @@ function RecipeDetails() {
                       {star} ⭐
                   </button>
               ))}
-              {/* 📊 Average Rating - Now Next to Stars */}
               <span className="average-rating-text">
                   Average Rating: {averageRating ? averageRating.toFixed(1) : "No ratings yet"}
               </span>
           </div>
 
           
-
-          {/* 💬 Comments Section */}
           <p><strong>Comments</strong></p>
           <div className="comments-section">
               {comments.map((comment) => (
@@ -253,7 +244,6 @@ function RecipeDetails() {
               ))}
           </div>
 
-          {/* ➕ Add Comment Section */}
           <div className="add-comment-form">
               <textarea
                   className="comment-input"

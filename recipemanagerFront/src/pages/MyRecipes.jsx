@@ -26,14 +26,12 @@ function MyRecipes() {
     }
   }, [userId]);
 
-  // Fetch only the logged-in user's recipes
   const fetchUserRecipes = async () => {
     try {
       const response = await api.get(`/recipes/user/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      // Fetch and set average rating for each recipe
       const recipesWithRatings = await Promise.all(response.data.map(async (recipe) => {
         try {
             const ratingResponse = await api.get(`/ratings/recipe/${recipe.recipeId}/average`, {
@@ -63,7 +61,6 @@ function MyRecipes() {
     }
   };
 
-  // Add Recipe
   const handleAddRecipe = async () => {
     try {
       if (!newRecipe.title || !newRecipe.description || !newRecipe.ingredients.trim() || !newRecipe.instructions.trim() || !newRecipe.categoryId) {
@@ -73,7 +70,7 @@ function MyRecipes() {
 
       const user = {
         userId: localStorage.getItem("userId"),
-        firstname: localStorage.getItem("firstname"), // Assuming you've stored it during login
+        firstname: localStorage.getItem("firstname"),
         lastname: localStorage.getItem("lastname"),
         email: localStorage.getItem("email")
       };
@@ -100,7 +97,6 @@ function MyRecipes() {
     }
   };
 
-  // Edit Recipe
   const handleEditRecipe = async () => {
     try {
       await api.put(`/recipes/${editingRecipe.recipeId}`, editingRecipe, {
@@ -118,7 +114,6 @@ function MyRecipes() {
     }
   };
 
-  // Delete Recipe
   const handleDeleteRecipe = async (recipeId) => {
     try {
       await api.delete(`/recipes/${recipeId}`, {
@@ -132,16 +127,14 @@ function MyRecipes() {
 
   return (
     <div className="main-content">
-      {/* Recipe List First */}
       <h1>My Recipes</h1>
       <ul className="recipe-list">
         {recipes.map((recipe) => (
           <li key={recipe.recipeId} className="recipe-card">
             
-            {/* Edit/Delete buttons remain separate */}
             {editingRecipe && editingRecipe.recipeId === recipe.recipeId ? (
               <div className="edit-section">
-                <h3 className="edit-title">{editingRecipe.title}</h3> {/* Moved title to top */}
+                <h3 className="edit-title">{editingRecipe.title}</h3>
                 <input 
                   type="text" 
                   placeholder="Title"
@@ -170,7 +163,6 @@ function MyRecipes() {
                 <button className="cancel-btn" onClick={() => setEditingRecipe(null)}>Cancel</button>
               </div>
             ) : (
-              //  Show recipe details only when NOT editing
               <div className="recipe-info" onClick={() => navigate(`/recipes/${recipe.recipeId}`)}>
                 <h3>{recipe.title}</h3>
                 <p>{recipe.description}</p>
@@ -178,7 +170,6 @@ function MyRecipes() {
               </div>
             )}
 
-            {/* Show Edit/Delete buttons when NOT in edit mode */}
             {!editingRecipe || editingRecipe.recipeId !== recipe.recipeId ? (
               <div className="action-buttons">
                 <button className="edit-btn" onClick={(e) => { e.stopPropagation(); setEditingRecipe(recipe); }}>Edit</button>
@@ -190,7 +181,6 @@ function MyRecipes() {
         ))}
       </ul>
 
-      {/* Add Recipe Form */}
       <h2>Add a Recipe</h2>
       <div className="add-recipe-form">
         <input type="text" 

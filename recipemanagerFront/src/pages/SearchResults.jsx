@@ -12,7 +12,6 @@ function Searched() {
   const location = useLocation();
   const token = localStorage.getItem("token");
 
-  // Extract search query from URL
   const queryParams = new URLSearchParams(location.search);
   const searchQuery = queryParams.get("query");
 
@@ -30,7 +29,6 @@ function Searched() {
           }),
         ]);
 
-        // Fetch number of recipes for each user
         const usersWithRecipeCounts = await Promise.all(
           userRes.data.map(async (user) => {
             try {
@@ -45,7 +43,6 @@ function Searched() {
           })
         );
 
-        // Fetch average rating for each recipe
         const recipesWithRatings = await Promise.all(
           recipeRes.data.map(async (recipe) => {
             try {
@@ -80,9 +77,7 @@ function Searched() {
         <p>Loading results...</p>
       ) : (
         <>
-          {/* Results Container */}
           <div className="search-results-container">
-            {/* Users Section */}
             <div className="users-section">
               <h2>Users</h2>
               {userResults.length > 0 ? (
@@ -99,8 +94,6 @@ function Searched() {
                 <p>No users found.</p>
               )}
             </div>
-  
-            {/* Recipes Section */}
             <div className="recipes-section">
               <h2>Recipes</h2>
               {recipeResults.length > 0 ? (
@@ -133,7 +126,6 @@ function Searched() {
             </div>
           </div>
   
-          {/* No results found */}
           {userResults.length === 0 && recipeResults.length === 0 && (
             <p>No users or recipes found.</p>
           )}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
-import "../styles/Profile.css"; // Import the CSS
+import "../styles/Profile.css";
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -59,8 +59,6 @@ function Profile() {
         await api.delete(`/users/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-
-        // Clear storage and redirect
         localStorage.clear();
         alert("Your account has been deleted.");
         navigate("/signup");
@@ -80,7 +78,6 @@ function Profile() {
           <p><strong>Email:</strong> {user.email}</p>
           <p><strong>Recipes Created:</strong> {recipeCount}</p>
 
-          {/* New Bubble Buttons */}
           <div className="profile-bubbles">
             <div className="bubble" onClick={() => navigate("/my-recipes")}>
               <h2>📖 My Recipes</h2>

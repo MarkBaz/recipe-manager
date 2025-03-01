@@ -33,22 +33,22 @@ function Recipes() {
   };
 
   const fetchRecipes = async () => {
-    setIsLoading(true); // Set loading before fetching
+    setIsLoading(true);
     try {
       const response = await api.get("/recipes", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      // Fetch and set average rating for each recipe
+      // fetch and set average rating for each recipe
       const recipesWithRatings = await Promise.all(response.data.map(async (recipe) => {
         try {
             const ratingResponse = await api.get(`/ratings/recipe/${recipe.recipeId}/average`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-            return { ...recipe, averageRating: ratingResponse.data }; // Store rating
+            return { ...recipe, averageRating: ratingResponse.data };
         } catch (error) {
             console.error(`Failed to fetch rating for recipe ${recipe.recipeId}`, error);
-            return { ...recipe, averageRating: 0.0 }; // Default to 0
+            return { ...recipe, averageRating: 0.0 };
         }
     }))
       setRecipes(recipesWithRatings);
@@ -80,14 +80,14 @@ function Recipes() {
         const response = await api.get(`/recipes/category/${categoryId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        // Fetch and attach average ratings just like in fetchRecipes
+        // fetch and attach average ratings just like in fetchRecipes
         const recipesWithRatings = await Promise.all(
           response.data.map(async (recipe) => {
             try {
               const ratingResponse = await api.get(`/ratings/recipe/${recipe.recipeId}/average`, {
                 headers: { Authorization: `Bearer ${token}` },
               });
-              return { ...recipe, averageRating: ratingResponse.data ?? 0.0 }; // Ensure numeric value
+              return { ...recipe, averageRating: ratingResponse.data ?? 0.0 };
             } catch (error) {
               console.error(`Failed to fetch rating for recipe ${recipe.recipeId}`, error);
               return { ...recipe, averageRating: 0.0 };
@@ -106,22 +106,22 @@ function Recipes() {
       const isFavorite = favoriteRecipes.some((fav) => fav.recipeId === recipe.recipeId);
 
         if (isFavorite) {
-            // Remove from favorites
+            // remove from favorites
             await api.delete(`/favorites/user/${userId}/recipe/${recipe.recipeId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-            // Update state to reflect removal
+            // update state to reflect removal
             setFavoriteRecipes((prevFavorites) =>
               prevFavorites.filter((fav) => fav.recipeId !== recipe.recipeId)
           );
         } else {
-            // Add to favorites
+            // else add to favorites
             await api.post(
                 "/favorites",
                 { userId, recipeId: recipe.recipeId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
-            // Update state to reflect addition
+            // update state to reflect addition
             setFavoriteRecipes((prevFavorites) => [...prevFavorites, recipe]);
         }
     } catch (error) {
@@ -133,7 +133,6 @@ function Recipes() {
     <div className="main-content">
       <h1>All Recipes</h1>
 
-      {/* Category Filter */}
       <div className="category-container">
         <select 
           value={selectedCategory} 
@@ -149,7 +148,6 @@ function Recipes() {
         </select>
       </div>
 
-      {/* Recipe List */}
       {isLoading ? <p>Loading recipes...</p> : (
         <div className="recipes-list">
           {recipes.map((recipe) => (
@@ -161,7 +159,7 @@ function Recipes() {
                   <span 
                     className="clickable-user" 
                     onClick={(e) => {
-                      e.stopPropagation(); // Prevent navigation to the recipe details
+                      e.stopPropagation();
                       navigate(`/users/${recipe.user.userId}`);
                     }}
                   >
@@ -173,7 +171,6 @@ function Recipes() {
                 <p>⭐ Average Rating: {typeof recipe.averageRating === "number" ? recipe.averageRating.toFixed(1) : "No ratings yet"}</p>
               </div>
               
-              {/* Favorite Button */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();

@@ -19,16 +19,15 @@ function Favorites() {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      // Fetch and set average rating for each recipe
       const favoritesWithRatings = await Promise.all(response.data.map(async (recipe) => {
         try {
             const ratingResponse = await api.get(`/ratings/recipe/${recipe.recipeId}/average`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-            return { ...recipe, averageRating: ratingResponse.data }; // Store rating
+            return { ...recipe, averageRating: ratingResponse.data };
         } catch (error) {
             console.error(`Failed to fetch rating for recipe ${recipe.recipeId}`, error);
-            return { ...recipe, averageRating: 0.0 }; // Default to 0
+            return { ...recipe, averageRating: 0.0 };
         }
     }));
 
@@ -40,12 +39,9 @@ function Favorites() {
 
   const removeFromFavorites = async (recipeId) => {
     try {
-      // Remove from favorites
       await api.delete(`/favorites/user/${userId}/recipe/${recipeId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
-      // Update state to reflect removal
       setFavoriteRecipes((prevFavorites) => prevFavorites.filter((fav) => fav.recipeId !== recipeId));
     } catch (error) {
       console.error("Failed to remove favorite:", error);
@@ -81,7 +77,6 @@ function Favorites() {
                 <p>⭐ Average Rating: {typeof recipe.averageRating === "number" ? recipe.averageRating.toFixed(1) : "No ratings yet"}</p>
               </div>
 
-              {/* Remove Favorite Button */}
               <button
                 className="remove-favorite-btn"
                 onClick={(e) => {
