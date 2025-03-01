@@ -34,20 +34,6 @@ public class UserServiceTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @Test
-    void testCreateUser_Success(){
-        UserDTO userDTO = new UserDTO(null, "Mark", "Baz", "mark@mail.com", "securepassword");
-        User user = new User(1L, "Mark", "Baz", "mark@mail.com", "hashedPassword");
-
-        when(passwordEncoder.encode(userDTO.getPassword())).thenReturn("hashedPassword");
-        when(userRepository.save(any(User.class))).thenReturn(user);
-
-        UserDTO createdUser = userService.createUser(userDTO);
-
-        assertNotNull(createdUser);
-        assertEquals("Mark", createdUser.getFirstname());
-        assertEquals("Baz", createdUser.getLastname());
-    }
 
     @Test
     void testGetUserById_Success(){

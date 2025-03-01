@@ -1,0 +1,58 @@
+.edit-account-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 80px;
+    background: #444;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: white;
+}
+
+.edit-account-container h1 {
+    margin-bottom: 20px;
+}
+
+.edit-account-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-account-container label {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.edit-account-container input {
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #3a3a3a;
+    color: white;
+}
+
+.edit-save-button, .edit-cancel-button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background: #008CBA;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-save-button:hover {
+    background: #005f7f;
+}
+
+.edit-cancel-button{
+    background: #d9534f;
+}
+
+.edit-cancel-button:hover {
+    background: #b52b27;
+}

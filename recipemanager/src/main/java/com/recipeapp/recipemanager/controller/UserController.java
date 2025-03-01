@@ -29,11 +29,6 @@ public class UserController{
         this.userService = userService;
     }
 
-    @PostMapping
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO){
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userDTO));
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
         return ResponseEntity.ok(userService.getUserById(id));
@@ -76,7 +71,6 @@ public class UserController{
         User existingUser = userRepository.findById(userId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
-        // Prevent deletion of another user unless the user is an admin
         if (!loggedInEmail.equals(existingUser.getEmail())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You can only delete your own profile.");
         }

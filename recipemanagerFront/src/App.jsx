@@ -12,6 +12,7 @@ import RecipeDetails from "./pages/RecipeDetails";
 import Favorites from "./pages/Favorites";
 import OtherUser from "./pages/OtherUser";
 import SearchResults from "./pages/SearchResults";
+import EditAccount from "./pages/EditAccount";
 import "./styles/App.css";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/users/:userId" element={<OtherUser />} />
         <Route path="/search-results" element={<SearchResults />} />
+        <Route path="/edit-account" element={<EditAccount />} />
       </Routes>
     </div>
   );

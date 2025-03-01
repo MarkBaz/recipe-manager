@@ -46,19 +46,6 @@ public class UserControllerTest {
     }
 
     @Test
-    void testCreateUser_Success() throws Exception {
-        UserDTO userDTO = new UserDTO(null, "Mark", "Baz", "mark@mail.com", "securepassword");
-
-        when(userService.createUser(any(UserDTO.class))).thenReturn(userDTO);
-
-        mockMvc.perform(post("/api/users")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(userDTO)))
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.firstname").value("Mark"));
-    }
-
-    @Test
     void testGetUserById_Success() throws Exception {
         UserDTO userDTO = new UserDTO(1L, "Mark", "Baz", "mark@mail.com", "securepassword");
 

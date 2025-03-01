@@ -69,6 +69,7 @@ function Profile() {
     }
   };
 
+
   return (
     <div className="main-content">
       <h1>My Profile</h1>
@@ -77,6 +78,9 @@ function Profile() {
           <p><strong>Name:</strong> {user.firstname} {user.lastname}</p>
           <p><strong>Email:</strong> {user.email}</p>
           <p><strong>Recipes Created:</strong> {recipeCount}</p>
+          <button className="edit-account-btn" onClick={() => navigate("/edit-account")}>
+            Edit Account Details
+          </button>
 
           <div className="profile-bubbles">
             <div className="bubble" onClick={() => navigate("/my-recipes")}>
