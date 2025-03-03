@@ -171,6 +171,7 @@ function Recipes() {
                 <p>⭐ Average Rating: {typeof recipe.averageRating === "number" ? recipe.averageRating.toFixed(1) : "No ratings yet"}</p>
               </div>
               
+              {token && (
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -180,6 +181,7 @@ function Recipes() {
               >
                 ❤️ Favorite
               </button>
+              )}
             </div>
           ))}
         </div>

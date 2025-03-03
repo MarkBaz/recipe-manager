@@ -11,9 +11,17 @@ function Home() {
       <h1>Welcome to Recipe Manager</h1>
 
       {!token && (
-        <div className="bubble" onClick={() => navigate("/login")}>
-          <h2>🔐 Log in / Sign up</h2>
-          <p>You need to log in to browse recipes.</p>
+        <div className="home-bubbles">
+          <div className="bubble" onClick={() => navigate("/recipes")}>
+            <h2>📖 Recipes</h2>
+            <p>Browse through all recipes.</p>
+          </div>
+          
+          <div className="bubble" onClick={() => navigate("/login")}>
+            <h2>🔐 Log in / Sign up</h2>
+            <p>Log in to manage your own recipes.</p>
+          </div>
+
         </div>
       )}
 

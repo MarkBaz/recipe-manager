@@ -31,6 +31,9 @@ function Navbar() {
           </>
         ) : (
           <>
+            <NavLink to="/recipes" className={({ isActive }) => (isActive ? "active" : "")}>
+              Recipes
+            </NavLink>
             <NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>
               Login
             </NavLink>

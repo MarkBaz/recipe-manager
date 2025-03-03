@@ -7,12 +7,15 @@ function OtherUser() {
   const { userId } = useParams();
   const [user, setUser] = useState(null);
   const [recipes, setRecipes] = useState([]);
+  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const loggedInUserId = localStorage.getItem("userId");
 
   useEffect(() => {
     fetchUserProfile();
     fetchUserRecipes();
+    fetchUserFavorites();
   }, [userId]);
 
   const fetchUserProfile = async () => {
@@ -52,6 +55,45 @@ function OtherUser() {
     }
   };
 
+  const fetchUserFavorites = async () => {
+    try {
+      const response = await api.get(`/favorites/user/${loggedInUserId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setFavoriteRecipes(response.data);
+    } catch (error) {
+      console.error("Failed to fetch user favorites:", error);
+    }
+  };
+
+  const toggleFavorite = async (recipe) => {
+    try {
+      const isFavorite = favoriteRecipes.some((fav) => fav.recipeId === recipe.recipeId);
+
+        if (isFavorite) {
+            // remove from favorites
+            await api.delete(`/favorites/user/${loggedInUserId}/recipe/${recipe.recipeId}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            // update state to reflect removal
+            setFavoriteRecipes((prevFavorites) =>
+              prevFavorites.filter((fav) => fav.recipeId !== recipe.recipeId)
+          );
+        } else {
+            // else add to favorites
+            await api.post(
+                "/favorites",
+                { userId: loggedInUserId, recipeId: recipe.recipeId },
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+            // update state to reflect addition
+            setFavoriteRecipes((prevFavorites) => [...prevFavorites, recipe]);
+        }
+    } catch (error) {
+      console.error("Failed to toggle favorite:", error);
+    }
+  };
+
   return (
     <div className="main-content">
       {user ? (
@@ -73,6 +115,17 @@ function OtherUser() {
                   <p>{recipe.description}</p>
                   <p>⭐ Average Rating: {typeof recipe.averageRating === "number" ? recipe.averageRating.toFixed(1) : "No ratings yet"}</p>
                 </div>
+                {token && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleFavorite(recipe);
+                    }}
+                    className={`favorite-btn ${favoriteRecipes.some((fav) => fav.recipeId === recipe.recipeId) ? "favorited" : ""}`}
+                  >
+                    ❤️ Favorite
+                  </button>
+                )}
               </div>
             ))}
           </div>

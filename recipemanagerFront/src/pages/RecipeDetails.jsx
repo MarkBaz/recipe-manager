@@ -69,11 +69,7 @@ function RecipeDetails() {
 };
 
   const fetchAverageRating = async () => {
-    try {
-        if (!token) {
-            console.error("No auth token found, user might not be logged in.");
-            return;
-        }
+    try {     
 
         const response = await api.get(`/ratings/recipe/${recipeId}/average`, {
             headers: { Authorization: `Bearer ${token}` },
@@ -199,17 +195,19 @@ function RecipeDetails() {
                   <li key={index}> {step}</li>
                 ))}
               </ol>
-          
+          {token && (
           <div className="rating-favorite-container">
               <p>Rate this Recipe</p>
 
               <button className={`favorite-btn ${isFavorite ? "favorited" : ""}`} onClick={toggleFavorite}>
-                  ❤️ {isFavorite ? "Unfavorite" : "Favorite"}
+                  ❤️ {isFavorite ? "Favorite" : "Favorite"}
               </button>
           </div>
+          )}
 
           <div className="rating-container">
-              {[1, 2, 3, 4, 5].map((star) => (
+            {token && (
+              [1, 2, 3, 4, 5].map((star) => (
                   <button
                       key={star}
                       onClick={() => handleRateRecipe(star)}
@@ -217,7 +215,8 @@ function RecipeDetails() {
                   >
                       {star} ⭐
                   </button>
-              ))}
+              ))
+            )}
               <span className="average-rating-text">
                   Average Rating: {averageRating ? averageRating.toFixed(1) : "No ratings yet"}
               </span>
